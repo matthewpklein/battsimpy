@@ -39,7 +39,7 @@ from copy import deepcopy
 
 # battsimpy specific imports
 import params
-import batteqns
+from helper_modules import batteqns
 
 
 class FULL_1D(Implicit_Problem):

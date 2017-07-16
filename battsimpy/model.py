@@ -44,8 +44,8 @@ import matplotlib as mpl
 import pickle
 
 # battsimpy specific modules
-import confreader
-import schedreader
+from helper_modules import confreader
+from helper_modules import schedreader
 
 # Plot setup
 plt.style.use('classic')
@@ -97,21 +97,21 @@ class Model():
         if 'ecm' in model_type:
             print "Not provided in this version yet."
             sys.exit()
-#            import ecm
+#            from battery_models import ecm
 #            self.model = ecm.Ecm(conf_data)
 #            self.model.buildpars()  # This creates self.model.pars
 
         elif 'spm' == model_type:
             print "Not provided in this version yet."
             sys.exit()
-#            import spm
+#            from battery_models import spm
 #            self.model = spm.Spm(conf_data)
 #            self.model.buildpars()
 
         elif 'spm_dist' == model_type:
             print "Not provided in this version yet."
             sys.exit()
-#            import spm_distributed
+#            from battery_models import spm_dist
 #            self.model = spm_distributed.Spm_dist(conf_data)
 #            self.model.buildpars()
 
@@ -123,13 +123,13 @@ class Model():
 #            self.model.buildpars()
 
         elif 'full_1d_fvm_ida' == model_type:
-            import full_1d_fvm_ida
+            from battery_models import full_1d_fvm_ida
             self.model = full_1d_fvm_ida.Simulator(conf_data, self.bsp_path)
 
         elif 'full_1d_dist' == model_type:
             print "Not provided in this version yet."
             sys.exit()
-#            import full_1d_fvm_ida_dist
+#            from battery_models import full_1d_fvm_ida_dist
 #            self.model = full_1d_fvm_ida_dist.Simulator(conf_data,
 #                                                        self.bsp_path)
 

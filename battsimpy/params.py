@@ -6,8 +6,8 @@ import scipy.interpolate
 # from matplotlib import pyplot as plt
 
 # battsimpy specific modules
-import confreader
-import batteqns
+from helper_modules import confreader
+from helper_modules import batteqns
 
 
 class Params():
