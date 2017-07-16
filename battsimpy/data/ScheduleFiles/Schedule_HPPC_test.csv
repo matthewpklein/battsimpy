@@ -1,0 +1,6 @@
+StepNumber,StepName,InputType,InputValue,StepDuration_sec,dt,StepTemp_C,VoltControlOn_chg,VoltControlOn_cdhg,VoltMax,VoltMin,CathodeMax,CathodeMin,AnodeMax,AnodeMin
+1,Rest,Rest,0,3,1,25,0,0,4.2,3,4.35,3.6,1.1,0.001
+2,CC_discharge,Crate,-0.5,10,2,25,0,0,4.2,3,4.35,3.6,1.1,0.001
+3,PostRest,Rest,0,10,2,25,0,0,4.2,3,4.35,3.6,1.1,0.001
+4,CC_charge,Crate,0.5,10,2,25,0,0,4.2,3,4.35,3.6,1.1,0.001
+3,PostRest,Rest,0,10,2,25,0,0,4.2,3,4.35,3.6,1.1,0.001
