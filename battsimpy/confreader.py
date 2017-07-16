@@ -38,8 +38,7 @@ There are four main types of inputs that may be provided in the config files:
 An example config file:
 #------------------------------------------------------------------------------
 $ FILEPATHS | value_type=strings
-CODE_ROOT=/home/mk-sim-linux/Battery_TempGrad/Python/batt_simulation/battsimpy/
-DATA_ROOT=/home/mk-sim-linux/Battery_TempGrad/Python/batt_simulation/battsimpy/data/
+INPUT_DATA_ROOT=/path/to/battsimpy/data/
 DATE=20160421
 TEST_TYPE=DCR_vs_SOC_and_T
 MODEL_NUM=1

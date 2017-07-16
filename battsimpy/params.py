@@ -27,7 +27,7 @@ class Params():
 
         self.RunInput = Pdat['RunInput']
         RunInput = Pdat['RunInput']
-        fname_root = RunInput['FILEPATHS']['DATA_ROOT'] + \
+        fname_root = RunInput['FILEPATHS']['INPUT_DATA_ROOT'] + \
             'Model_' + RunInput['FILEPATHS']['MODEL_NAME'] + '/' + \
             RunInput['FILEPATHS']['PARAMS'] + '/'
 

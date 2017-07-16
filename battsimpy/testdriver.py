@@ -28,8 +28,8 @@ def main():
 
     args = parser.parse_args()
 
-    mod_file = args.bsp_path + 'configs/' + args.mod_file
-    sim_file = args.bsp_path + 'configs/' + args.sim_file
+    mod_file = args.bsp_path + 'config_files/' + args.mod_file
+    sim_file = args.bsp_path + 'config_files/' + args.sim_file
 
     print 'battsimpy path setting  :', args.bsp_path
     print 'Model file setting      :', mod_file

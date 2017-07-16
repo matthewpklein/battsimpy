@@ -137,7 +137,7 @@ class Model():
             sys.exit("MODEL_TYPE not recognized!")
 
         # Read in test schedule data
-        self.sched_path = conf_data['FILEPATHS']['DATA_ROOT'] \
+        self.sched_path = conf_data['FILEPATHS']['INPUT_DATA_ROOT'] \
             + conf_data['FILEPATHS']['SCHED_PATH']
         self.sched_dat = schedreader.readsched(self.sched_path)
 
