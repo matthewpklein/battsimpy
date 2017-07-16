@@ -53,7 +53,7 @@ e.g.,
 /OUTPUT_ROOT/DATE/ is the full path used for the output simulation data.
 
 ## Useage
-cd to your local directory for `../battsimpy/battsimpy/`.
+cd to your local directory for `/path/to/battsimpy/battsimpy/`.
 
 To run an example simulation:
 ```
