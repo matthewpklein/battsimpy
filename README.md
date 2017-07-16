@@ -35,7 +35,7 @@ This is the quickest way to get going for me.
 
 ## Setup
 Two configuration files need to be either generated, or modified from the
- provided examples. The model_...cfg and sim_...cfg files should be setup.
+ provided examples. The model_...conf and sim_...conf files should be setup.
 
 For simply running the provided model and simulation the only key that needs to
  be changed is the INPUT_DATA_ROOT. This should be:
@@ -53,16 +53,16 @@ e.g.,
 /OUTPUT_ROOT/DATE/ is the full path used for the output simulation data.
 
 ## Useage
-cd to your local directory for `battsimpy`.
+cd to your local directory for `../battsimpy/battsimpy/`.
 
 To run an example simulation:
 ```
-python testdriver.py /path/to/battsimpy/ model_conffile.cfg sim_conffile.cfg
+python testdriver.py /path/to/battsimpy/ model_conffile.conf sim_conffile.conf
 ```
 
 Some example plots:
 ```
-python plotdriver.py /path/to/battsimpy/ model_conffile.cfg sim_conffile.cfg
+python plotdriver.py /path/to/battsimpy/ model_conffile.conf sim_conffile.conf
 ```
 
 ## More detailed setup

@@ -430,3 +430,55 @@ class Model():
             + self.model.confdat['FILEPATHS']['DATE'] + '/' + filename
 
         self.results_holder = pickle.load(open(filepath, "rb"))
+
+    def plotresults(self):
+        """
+        Example plots.
+        """
+        print self.results_holder
+        data = self.results_holder[0]
+        
+        print data['step0_repeat0']
+
+        fig, ax = plt.subplots(1, 2)
+        ax_an = ax[0].twinx()
+        for stp in range(len(self.sched_dat['StepNumber'])):
+            stp_rep = 'step' + str(stp) + '_repeat0'
+            if stp == 0:
+                # Plot the full cell potential, and the cathode and anode voltages.
+                ax[0].plot(data[stp_rep].test_time, data[stp_rep].Volt,
+                    '-sb', label='Cell Voltage')
+                ax[0].plot(data[stp_rep].test_time, data[stp_rep].Vc,
+                    '-sk', label='Cathode Voltage')
+                ax_an.plot(data[stp_rep].test_time, data[stp_rep].Va,
+                    '-sr', label='Anode Voltage')
+
+                # Plot the input current profile.
+                ax[1].plot(data[stp_rep].test_time, data[stp_rep].Cur,
+                    '-sb', label='Input current')
+
+                for axi in ax:
+                    axi.legend(loc=2)
+                    axi.set_xlabel('Test Time [s]')
+                ax_an.legend(loc=3)
+                ax[0].set_ylabel('Voltage [V]')
+                ax[1].set_ylabel('Current [A]')
+            else:
+                # Plot the full cell potential, and the cathode and anode voltages.
+                ax[0].plot(data[stp_rep].test_time, data[stp_rep].Volt,
+                    '-sb')
+                ax[0].plot(data[stp_rep].test_time, data[stp_rep].Vc,
+                    '-sk')
+                ax_an.plot(data[stp_rep].test_time, data[stp_rep].Va,
+                    '-sr')
+
+                # Plot the input current profile.
+                ax[1].plot(data[stp_rep].test_time, data[stp_rep].Cur,
+                    '-sb')
+
+        ax[0].set_ylim([3.5, 4.2])
+        ax_an.set_ylim([0.0, 0.5])
+        ax[1].set_ylim([0.0, 6.0])
+        plt.tight_layout()
+
+        plt.show()

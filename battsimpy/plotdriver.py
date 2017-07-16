@@ -1,31 +1,47 @@
+# -*- coding: utf-8 -*-
+"""Main driver for plotting simulation results.
+
+Example:
+    $ python plotdriver.py /path/to/output/data/
+      model_nmc_fvmP2D.conf sim_DCR.conf
+
+"""
+import argparse
+
+# battsimpy specific modules
 import model
 
-confdir    = '/home/mk-sim-linux/Battery_TempGrad/Python/batt_simulation/battsimpy/configs/'
 
-#confdir    = '/Users/mk/Desktop/battsim/battsimpy/configs/'
+def main(bsp_path, mod_file, sim_file):
+    """
+    Import the arguments and run the simulation case that has been setup.
+    """
+    print 'battsimpy path setting  :', bsp_path
+    print 'Model file setting      :', mod_file
+    print 'Simulation file setting :', sim_file
 
-#configFile = confdir+'DCRconf_macTesting.conf'
+    # Build the model and perform simulation
+    full_1d = model.Model(mod_file, sim_file, bsp_path)
+    full_1d.buildmodel()
+    print 'Model build complete.\n'
+    full_1d.loadresults()
+    print 'Simulation data loaded.\n Plotting...\n'
+    full_1d.plotresults()
 
-#full_1d = model.MODEL(configFile)
-#full_1d.buildmodel()
-#full_1d.simulate()
-#full_1d.plotresults()
 
-#configFile = confdir+'DCRconf_macTesting_spmdist.conf'
-configFile = confdir+'DCRconf_testConf_spmdist.conf'
-#configFile = confdir+'CCconf_testConf_spmdist.conf'
-#configFile = confdir+'CCconf_macTesting_spmdist.conf'
-#configFile = confdir+'CCconf_macTesting_spm.conf'
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("bsp_path",
+                        help="Path to battsimpy installation.")
+    parser.add_argument("mod_file",
+                        help="Model config file.")
+    parser.add_argument("sim_file",
+                        help="Simulation config file.")
 
-#configFile = confdir+'DCRconf_macTesting_spm.conf'
-#configFile = confdir+'CCconf_testConf_spm.conf'
+    args = parser.parse_args()
 
-#configFile = confdir+'HPPCconf_testConf_spmdist.conf'
+    bsp_path = args.bsp_path
+    mod_file = bsp_path + 'config_files/' + args.mod_file
+    sim_file = bsp_path + 'config_files/' + args.sim_file
 
-spm = model.MODEL(configFile)
-
-spm.buildmodel()
-
-spm.loadresults()
-
-spm.plotresults()
+    main(bsp_path, mod_file, sim_file)
