@@ -57,7 +57,13 @@ mpl.rc('font', size=FS, weight=FW, family='Arial')
 
 class Model():
     """
-    This is main class for pyBatt models
+    battsimpy model class.
+    The input configuration files are read.
+    The test schedule is organized.
+    The prescribed battery model is initialized.
+    Each step in the test schedule is evaluated.
+    The results are saved.
+    The results may be re-loaded and plotted.
     """
     def __init__(self, mod_conf_path, sim_conf_path, bsp_path):
         """
@@ -126,12 +132,10 @@ class Model():
             from battery_models import full_1d_fvm_ida
             self.model = full_1d_fvm_ida.Simulator(conf_data, self.bsp_path)
 
-        elif 'full_1d_dist' == model_type:
-            print "Not provided in this version yet."
-            sys.exit()
-#            from battery_models import full_1d_fvm_ida_dist
-#            self.model = full_1d_fvm_ida_dist.Simulator(conf_data,
-#                                                        self.bsp_path)
+        elif 'full_1d_fvm_ida_dist' == model_type:
+            from battery_models import full_1d_fvm_ida_dist
+            self.model = full_1d_fvm_ida_dist.Simulator(conf_data,
+                                                        self.bsp_path)
 
         else:
             sys.exit("MODEL_TYPE not recognized!")
